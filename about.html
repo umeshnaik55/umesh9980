@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <style>
+        body {
+            background-color: #FFD700; /* Lighter goldenrod background */
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        
+        header {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        header nav ul li {
+            display: inline;
+            margin: 0 20px;
+        }
+
+        header nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        header nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        section {
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        article {
+            margin-bottom: 10px;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+        
+        .project-description {
+            margin-bottom: 10px;
+        }
+
+        .skill-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 10px;
+        }
+
+        .skill-list li {
+            background-color: #555;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .contact-info p {
+            font-size: 16px;
+        }
+
+        .social-links a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Umesha</h1>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section id="about">
+            <h2>About Me</h2>
+            <p>Hello! I'm Umesha, a passionate web developer with a love for creating user-friendly, functional, and visually appealing websites. I have experience working with technologies like HTML, CSS, JavaScript.</p>
+            </section>
+        
+        <section id="projects">
+            <h2>Projects</h2>
+           
+            <article>
+                <h3>Project 2: E-Commerce Website</h3>
+                <p class="project-description">An e-commerce website with a shopping cart, user authentication, and product search functionality. </p>
+               
+            </article>
+            <article>
+                <h3>Project 3: Portfolio Website</h3>
+                <p class="project-description">This portfolio website showcases my skills, projects, and contact information. </p>
+                
+            </article>
+        </section>
+        
+        <section id="skills">
+            <h2>Skills</h2>
+            <ul class="skill-list">
+                <li>HTML5</li>
+                <li>CSS3</li>
+                <li>JavaScript</li>
+              
+            </ul>
+        </section>
+    </main>
+    
+    <footer>
+        <section id="contact">
+            <h2>Contact Me</h2>
+            <div class="contact-info">
+                <p><strong>Email:</strong> 123@example.com</p>
+                <p><strong>Phone:</strong> +123 456 7890</p>
+            </div>
+            <div class="social-links">
+                <a href="https://github.com/umesha" target="_blank">GitHub</a>
+                <a href="https://www.linkedin.com/in/umesha" target="_blank">LinkedIn</a>
+                <a href="mailto:123@example.com">Email Me</a>
+            </div>
+        </section>
+    </footer>
+</body>
+</html>
