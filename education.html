@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education News</title>
+    <style>
+        body {
+            background: linear-gradient(to right, #a18cd1, #fbc2eb);
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 800px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .filter-buttons {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            padding: 10px 15px;
+            font-size: 16px;
+            color: white;
+            background: linear-gradient(135deg, #36d1dc, #5b86e5);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin: 5px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .btn:hover {
+            background: linear-gradient(135deg, #5b86e5, #36d1dc);
+            transform: scale(1.05);
+        }
+
+        .article {
+            background: #f9f9f9;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Latest Education News</h1>
+
+        <div class="filter-buttons">
+            <button class="btn" onclick="showArticles('all')">All</button>
+            <button class="btn" onclick="showArticles('technology')">Technology</button>
+            <button class="btn" onclick="showArticles('research')">Research</button>
+            <button class="btn" onclick="showArticles('scholarship')">Scholarships</button>
+        </div>
+
+        <div id="news-container"></div>
+    </div>
+
+    <script>
+        const educationArticles = [
+            { title: "AI in Education", content: "How artificial intelligence is transforming learning.", category: "technology" },
+            { title: "New Research Grants Available", content: "Several universities are offering new funding opportunities.", category: "research" },
+            { title: "Scholarship Programs Announced", content: "Students can now apply for new government scholarships.", category: "scholarship" },
+        ];
+
+        function showArticles(category) {
+            let newsContainer = document.getElementById("news-container");
+            newsContainer.innerHTML = "";
+
+            for (let i = 0; i < educationArticles.length; i++) {
+                if (category === "all" || educationArticles[i].category === category) {
+                    let article = document.createElement("div");
+                    article.className = "article";
+                    article.innerHTML = `<h3>${educationArticles[i].title}</h3><p>${educationArticles[i].content}</p>`;
+                    newsContainer.appendChild(article);
+                }
+            }
+
+            let displayedArticles = document.getElementsByClassName("article");
+            for (let i = 0; i < displayedArticles.length; i++) {
+                displayedArticles[i].style.display = "block";
+            }
+        }
+
+        showArticles('all');
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Film News</title>
+    <style>
+        body {
+            background: linear-gradient(to right, #ff9a9e, #fad0c4);
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 800px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .filter-buttons {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            padding: 10px 15px;
+            font-size: 16px;
+            color: white;
+            background: linear-gradient(135deg, #ff416c, #ff4b2b);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin: 5px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .btn:hover {
+            background: linear-gradient(135deg, #ff4b2b, #ff416c);
+            transform: scale(1.05);
+        }
+
+        .article {
+            background: #f9f9f9;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            display: none;
+        }
+
+        .article h3 {
+            margin: 0;
+            color: #333;
+        }
+
+        .article p {
+            color: #555;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Latest Film News</h1>
+
+        <div class="filter-buttons">
+            <button class="btn" onclick="showArticles('all')">All</button>
+            <button class="btn" onclick="showArticles('hollywood')">Hollywood</button>
+            <button class="btn" onclick="showArticles('bollywood')">Bollywood</button>
+            <button class="btn" onclick="showArticles('awards')">Awards</button>
+        </div>
+
+        <div id="news-container"></div>
+    </div>
+
+    <script>
+        const filmArticles = [
+            { title: "Oscars 2024 Highlights", content: "The biggest night in Hollywood celebrated the best films of the year.", category: "awards" },
+            { title: "Bollywood Blockbuster Released", content: "A new action-packed Bollywood film takes over the box office.", category: "bollywood" },
+            { title: "Hollywood Sequel Announced", content: "A popular franchise confirms the release of its next sequel.", category: "hollywood" },
+        ];
+
+        function showArticles(category) {
+            let newsContainer = document.getElementById("news-container");
+            newsContainer.innerHTML = "";
+
+            for (let i = 0; i < filmArticles.length; i++) {
+                if (category === "all" || filmArticles[i].category === category) {
+                    let article = document.createElement("div");
+                    article.className = "article";
+                    article.innerHTML = `<h3>${filmArticles[i].title}</h3><p>${filmArticles[i].content}</p>`;
+                    newsContainer.appendChild(article);
+                }
+            }
+
+            let displayedArticles = document.getElementsByClassName("article");
+            for (let i = 0; i < displayedArticles.length; i++) {
+                displayedArticles[i].style.display = "block";
+            }
+        }
+
+        showArticles('all');
+    </script>
+
+</body>
+</html>

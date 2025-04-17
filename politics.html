@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Politics News</title>
+    <style>
+        body {
+            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 15px;
+            font-size: 24px;
+        }
+
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .article {
+            padding: 10px;
+            margin: 10px 0;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            margin-top: 20px;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <header>Politics News</header>
+    
+    <div class="container" id="news-container">
+        <h2>Latest Political Updates</h2>
+    </div>
+    
+    <button class="btn" onclick="loadMoreNews()">Load More News</button>
+
+    <script>
+        let newsArticles = [
+            "Government announces new policies to boost the economy.",
+            "International summit held to discuss global climate change.",
+            "Elections 2024: Key candidates and their policies explained.",
+            "Political leaders debate on the upcoming budget proposal.",
+            "New reforms introduced to enhance national security."
+        ];
+
+        function loadMoreNews() {
+            let container = document.getElementById('news-container');
+            
+            for (let i = 0; i < newsArticles.length; i++) {
+                let articleDiv = document.createElement('div');
+                articleDiv.classList.add('article');
+                articleDiv.innerHTML = `<p>${newsArticles[i]}</p>`;
+                container.appendChild(articleDiv);
+            }
+        }
+    </script>
+</body>
+</html>

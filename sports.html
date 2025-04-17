@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports News</title>
+    <style>
+        body {
+            background: linear-gradient(to right, #4facfe, #00f2fe);
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 800px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .filter-buttons {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            padding: 10px 15px;
+            font-size: 16px;
+            color: white;
+            background: linear-gradient(135deg, #ff416c, #ff4b2b);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin: 5px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .btn:hover {
+            background: linear-gradient(135deg, #ff4b2b, #ff416c);
+            transform: scale(1.05);
+        }
+
+        .article {
+            background: #f9f9f9;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            display: none;
+        }
+
+        .article h3 {
+            margin: 0;
+            color: #333;
+        }
+
+        .article p {
+            color: #555;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Latest Sports News</h1>
+
+        <div class="filter-buttons">
+            <button class="btn" onclick="showArticles('all')">All</button>
+            <button class="btn" onclick="showArticles('football')">Football</button>
+            <button class="btn" onclick="showArticles('cricket')">Cricket</button>
+            <button class="btn" onclick="showArticles('tennis')">Tennis</button>
+        </div>
+
+        <div id="news-container">
+            <!-- Articles will be inserted dynamically using JavaScript -->
+        </div>
+    </div>
+
+    <script>
+        // Sports articles data
+        const sportsArticles = [
+            { title: "Football: Champions League Final", content: "The most awaited Champions League final is set to take place this weekend.", category: "football" },
+            { title: "Cricket: T20 World Cup Update", content: "India and Australia face off in a thrilling T20 World Cup semi-final.", category: "cricket" },
+            { title: "Tennis: Grand Slam Results", content: "Novak Djokovic wins another Grand Slam, securing his 22nd title.", category: "tennis" },
+            { title: "Football: Transfer Window Buzz", content: "Major clubs are making big moves in the transfer market.", category: "football" },
+            { title: "Cricket: New Records Set", content: "A new world record has been set for the highest individual score in ODIs.", category: "cricket" }
+        ];
+
+        // Function to display articles dynamically
+        function showArticles(category) {
+            let newsContainer = document.getElementById("news-container");
+            newsContainer.innerHTML = "";  // Clear existing content
+
+            // Loop through articles and display based on the selected category
+            for (let i = 0; i < sportsArticles.length; i++) {
+                if (category === "all" || sportsArticles[i].category === category) {
+                    let article = document.createElement("div");
+                    article.className = "article";
+                    article.innerHTML = `<h3>${sportsArticles[i].title}</h3><p>${sportsArticles[i].content}</p>`;
+                    newsContainer.appendChild(article);
+                }
+            }
+
+            // Show all displayed articles
+            let displayedArticles = document.getElementsByClassName("article");
+            for (let i = 0; i < displayedArticles.length; i++) {
+                displayedArticles[i].style.display = "block";
+            }
+        }
+
+        // Show all articles on initial load
+        showArticles('all');
+    </script>
+
+</body>
+</html>
